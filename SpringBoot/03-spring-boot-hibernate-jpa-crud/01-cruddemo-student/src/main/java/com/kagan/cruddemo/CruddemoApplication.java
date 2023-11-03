@@ -30,3 +30,4 @@ public class CruddemoApplication {
 		System.out.println("SAVED ID: " + tempStudent.getId());
 	}
 }
+
