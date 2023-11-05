@@ -22,11 +22,42 @@ public class CruddemoApplication {
 			//readStudent(studentDAO);
 			//queryForStudents(studentDAO);
 			//queryForStudentsByLastName(studentDAO);
-
+			//updateStudent(studentDAO);
+			deleteStudent(studentDAO);
 		};
 	}
 
+	private void deleteStudent(StudentDAO studentDAO) {
 
+		int studentId = 1;
+
+		System.out.println("Deleting student with id: " + studentId);
+		studentDAO.delete(studentId);
+
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+
+		int studentId = 1;
+
+		System.out.println("Getting student with id: " + studentId);
+		Student myStudent = studentDAO.findById(studentId);
+
+		System.out.println("Updating student");
+		myStudent.setFirstName("yasir");
+		studentDAO.update(myStudent);
+
+		System.out.println("Updated Student: " + myStudent);
+	}
+
+	private void queryForStudentsByLastName(StudentDAO studentDAO) {
+
+		List<Student> theStudents = studentDAO.findByLastName("gunturk");
+
+		for (Student tempStudent : theStudents){
+			System.out.println(tempStudent);
+		}
+	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
 
